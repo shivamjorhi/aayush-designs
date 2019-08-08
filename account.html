@@ -1,0 +1,49 @@
+<div class="col-md-6" class="jumbotron">
+    <h1> Account Details</h1>
+
+    <table class="table" style="width:100%">
+        <thead class="thead-dark">
+            <tr>
+                <th>Account Id</th>
+                <th>Mobile Number</th>
+                <th>Account Holder Name</th>
+                <th>Account Balance</th>
+                <th colspan="2" align="centre">Actions</th>
+            </tr>
+        </thead>
+        <tr *ngFor="let ac of accounts,let i=index">
+            <td>{{ac.aid}}</td>
+            <td>{{ac.mobile}}</td>
+            <td>{{ac.accountholder}}</td>
+            <td>{{ac.balance}}</td>
+            <td><button class="btn btn-danger" (click)="deleteAccount(ac)"> Delete </button></td>
+            <td><button class="btn btn-warning" (click)="editAccount(i)">Update</button></td>
+        </tr>
+    </table>
+
+
+    <div *ngIf="status">
+            <form (ngSubmit)="updateAccount()">
+              <div class="form-group">
+                <label for="name">Account Id:-</label>
+                <input type="text" class="form-control" id="aid" required [(ngModel)]="account.aid" name="aid">
+              </div>
+              <div class="form-group">
+                <label for="name">Mobile No:-</label>
+                <input type="text" class="form-control" id="mobile" required [(ngModel)]="account.mobile" name="mobile">
+              </div>
+              <div class="form-group">
+                <label for="name">Account Holder Name:-</label>
+                <input type="text" class="form-control" id="accountholder" required [(ngModel)]="account.accountholder" name="accountholder">
+              </div>
+          
+              <div class="form-group">
+                <label for="age">Account Balance:-</label>
+                <input type="text" class="form-control" id="balance" required [(ngModel)]="account.balance" name="balance">
+              </div>
+              
+          
+              <button type="submit" class="btn btn-success">Submit</button>
+            </form>
+          </div>
+

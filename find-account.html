@@ -1,0 +1,38 @@
+<div class="jumbotron">
+<h1>Find Account Details</h1>
+<form (ngSubmit)="searchAccount()" #accForm="ngForm">
+
+        <div class="form-group" padding="10px">
+                <div class="col-xs-1">
+                    <label for="mobile">Account Mobile No.:</label>
+                    <input type="text" class="form-control" [(ngModel)]="mobile" name="mobile" id="mobile" #idcontrol="ngModel"  aria-describedby="mobileHelp" placeholder="Enter Account Mobile No." required/>
+                    <small id="mobileHelp" class="form-text text-muted" *ngIf="idcontrol.touched && idcontrol.invalid">*Account Mobile Number Required.</small>
+                </div>
+        </div>
+
+    <input type="submit" value="Find Account" [disabled]="accForm.invalid" class="btn btn-success" />&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="reset" value="Clear"  class="btn btn-danger" (click)="reset()" />
+
+</form>
+<br>
+<div *ngIf="status">
+    <table border="1" class="table table-dark">
+        <thead>
+        <tr>
+        <th scope="col">Account Id</th>
+        <th scope="col">Account MobileNo</th>
+        <th scope="col">Account Holder Name</th>
+        <th scope="col">Account Balance</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{accounts.aid}}</td>
+            <td>{{accounts.mobile}}</td>
+            <td>{{accounts.accountholder}}</td>
+            <td>{{accounts.balance}}</td>
+        </tr>
+    </tbody>
+    </table>
+</div>
+</div>

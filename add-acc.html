@@ -1,0 +1,39 @@
+<div class="jumbotron">
+<font color=" Green"><h1>Add Account Details..</h1></font>
+<form #accForm="ngForm" (ngSubmit)="createAccount()">
+    <div class="form-group" padding="10px">
+        <div class="col-xs-1">
+            <label for="aid">Account Id:</label>
+            <input type="text" class="form-control" [(ngModel)]="account.aid" name="aid" id="aid" #idcontrol="ngModel"  aria-describedby="IdHelp" placeholder="Enter Account Id" required/>
+            <small id="IdHelp" class="form-text text-muted" *ngIf="idcontrol.touched && idcontrol.invalid">*Account Id Required.</small>
+        </div>
+    </div>
+
+    <div class="form-group" padding="10px">
+        <div class="col-xs-1">
+            <label for="name">Account Holder Name:</label>
+            <input type="text" class="form-control" [(ngModel)]="account.accountholder" name="accountholder" id="accountholder" #idcontrol="ngModel"  aria-describedby="nameHelp" placeholder="Enter Account Holder name" required/>
+            <small id="nameHelp" class="form-text text-muted" *ngIf="idcontrol.touched && idcontrol.invalid">*Account Holder Name Required.</small>
+        </div>
+    </div>
+
+    <div class="form-group" padding="10px">
+        <div class="col-xs-1">
+            <label for="mobile">Account Mobile No.:</label>
+            <input type="text" class="form-control" [(ngModel)]="account.mobile" name="mobile" id="mobile" #idcontrol="ngModel"  aria-describedby="mobileHelp" placeholder="Enter Account Mobile No." required/>
+            <small id="mobileHelp" class="form-text text-muted" *ngIf="idcontrol.touched && idcontrol.invalid">*Account Mobile Number Required.</small>
+        </div>
+    </div>
+
+    <div class="form-group" padding="10px">
+        <div class="col-xs-1">
+            <label for="balance">Account Mobile No.:</label>
+            <input type="text" class="form-control" [(ngModel)]="account.balance" name="balance" id="balance" #idcontrol="ngModel"  aria-describedby="balanceHelp" placeholder="Enter Account balance" required/>
+            <small id="balanceHelp" class="form-text text-muted" *ngIf="idcontrol.touched && idcontrol.invalid">*Account balance Required.</small>
+        </div>
+    </div>
+
+    <input type="submit" value="Add Account" [disabled]="accForm.invalid" class="btn btn-success" />&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="reset" value="Clear"  class="btn btn-danger" />
+</form>
+</div>
